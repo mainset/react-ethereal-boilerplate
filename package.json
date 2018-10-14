@@ -40,6 +40,7 @@
     "@babel/polyfill": "^7.12.1",
     "connected-react-router": "^6.3.2",
     "history": "^4.9.0",
+    "husky": "^1.1.2",
     "immutable": "^4.0.0-rc.12",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
@@ -50,5 +51,10 @@
     "redux-saga": "^1.0.2",
     "redux-shared-store": "mainset/redux-shared-store#master",
     "reselect": "^4.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint:js"
+    }
   }
 }
