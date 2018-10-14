@@ -17,8 +17,11 @@ class Example extends Component {
     const { welcome } = this.props;
     return (
       <div className="example-container">
-        <div>Your IP is: {welcome.get('origin')}</div>
-        <br/>
+        <div>
+          Your IP is:
+          {welcome.get('origin')}
+        </div>
+        <br />
         <Link to="/">Back to home page</Link>
       </div>
     );

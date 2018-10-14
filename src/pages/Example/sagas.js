@@ -19,6 +19,6 @@ function* fetchWelcomeData() {
 export default function* appSagas() {
   return [
     yield takeLatest(FETCH_WELCOME_DATA, fetchWelcomeData),
-    yield takeLatest('FETCH_WELCOME_DATA_TWO', fetchWelcomeData)
+    yield takeLatest('FETCH_WELCOME_DATA_TWO', fetchWelcomeData),
   ];
 }
