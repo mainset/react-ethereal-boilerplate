@@ -12,5 +12,6 @@ module.exports = merge(commonConfig, browserConfig, {
   entry: [
     '@babel/polyfill',
     path.join(paths.src, 'main-csr.js'),
+    path.join(paths.src, 'styles', 'main.scss'),
   ],
 });

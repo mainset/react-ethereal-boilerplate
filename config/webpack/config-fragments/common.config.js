@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 /* eslint-disable */
+var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var path = require('path');
 
 var babelConfig = require('../../../babel.config.js');
@@ -38,6 +39,18 @@ module.exports = {
               outputPath: 'dist/assets/fonts',
             },
           },
+        ],
+      }, {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../',
+            },
+          },
+          'css-loader',
+          'sass-loader',
         ],
       },
     ],
