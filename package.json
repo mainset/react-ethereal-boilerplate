@@ -13,7 +13,9 @@
     "watch:ssr": "cross-env NODE_ENV=development webpack --mode development --watch --config ./config/webpack/ssr.dev.config.js",
     "watch:server": "nodemon ./private/server.js",
     "watch:serve-static": "nodemon ./private/server.js",
-    "lint:js": "eslint --ext .js src/"
+    "lint": "yarn lint:js && yarn lint:scss",
+    "lint:js": "eslint --ext .js src/",
+    "lint:scss": "stylelint 'src/**/*.scss' --syntax scss"
   },
   "main": "index.js",
   "repository": "git@github.com:mainset/react-ethereal-boilerplate.git",
@@ -50,6 +52,9 @@
     "redux-devtools-extension": "^2.13.5",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "stylelint": "^9.6.0",
+    "stylelint-config-sass-guidelines": "^5.2.0",
+    "stylelint-declaration-use-variable": "^1.7.0",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
@@ -73,7 +78,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint:js"
+      "pre-commit": "yarn lint"
     }
   }
 }
