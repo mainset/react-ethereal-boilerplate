@@ -9,6 +9,8 @@ var rootPath = path.join(__dirname, '..', '..');
 const srcPath = path.join(rootPath, 'src');
 /* eslint-enable */
 
+require('dotenv').config();
+
 module.exports = {
   mode: JSON.stringify(process.env.NODE_ENV),
   entry: [
