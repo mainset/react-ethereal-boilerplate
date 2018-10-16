@@ -4,8 +4,6 @@
   { result: resultObj, error: errorObj }
 */
 
-const API_HOST = 'https://httpbin.org';
-
 // NOTE: add some default options like headers here
 const defaultRequestOptions = {
   headers: {
@@ -15,7 +13,7 @@ const defaultRequestOptions = {
 
 export function fetchRequest(path: string, customOptions) {
   const options = Object.assign({}, defaultRequestOptions, customOptions);
-  const request = new Request(`${API_HOST}${path}`, options);
+  const request = new Request(path, options);
 
   return fetch(request)
     .then((response) => response.json())

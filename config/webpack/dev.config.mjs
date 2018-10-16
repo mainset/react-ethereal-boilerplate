@@ -1,6 +1,7 @@
 import { merge } from 'webpack-merge';
 
 import paths from '../paths.mjs';
+import proxyConfig from '../proxy.mjs';
 
 import common from './common.config.mjs';
 
@@ -15,6 +16,7 @@ const devConfig = merge(common, {
       directory: paths.rootPath,
     },
     historyApiFallback: true,
+    proxy: proxyConfig,
   },
 });
 
