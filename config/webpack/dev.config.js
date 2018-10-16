@@ -2,6 +2,7 @@
 var { merge } = require('webpack-merge');
 
 var paths = require('../paths');
+var proxyConfig = require('../proxy');
 
 var common = require('./common.config.js');
 /* eslint-enable */
@@ -17,5 +18,6 @@ module.exports = merge(common, {
       directory: paths.rootPath,
     },
     historyApiFallback: true,
+    proxy: proxyConfig,
   },
 });
