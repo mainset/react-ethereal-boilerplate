@@ -1,15 +1,12 @@
-// handle '/api' only if '/' is presence after 'api' like: '/api/'
-const apiLocalPathRegExp = '^/api(?=/)';
-
 const proxyConfig = {
-  '/api': {
+  '/api/': {
     target: process.env.API_REMOTE_URL,
-    pathRewrite: { [apiLocalPathRegExp]: '' },
+    pathRewrite: { '^/api/': '/' },
     changeOrigin: true,
   },
-  '/api-local': {
+  '/api-local/': {
     target: process.env.API_LOCAL_PATH,
-    pathRewrite: { '^/api-local': '' },
+    pathRewrite: { '^/api-local/': '/' },
   },
 };
 
