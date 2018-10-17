@@ -18,7 +18,7 @@ app.get(/^\/+(?!api)/, (req, res) => (
   res.sendFile(path.resolve(__dirname, '..', 'public', 'index.html'))
 ));
 
-app.use('/api', proxy(proxyConfig['/api']));
-app.use('/api-local', proxy(proxyConfig['/api-local']));
+app.use('/api', proxy(proxyConfig['/api/']));
+app.use('/api-local', proxy(proxyConfig['/api-local/']));
 
 app.listen(port, () => console.log(`App listening on port ${port}!`));
