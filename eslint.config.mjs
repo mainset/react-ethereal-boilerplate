@@ -1,3 +1,4 @@
+import babelParser from '@babel/eslint-parser';
 import pluginJs from '@eslint/js';
 import importPlugin from 'eslint-plugin-import';
 import pluginReact from 'eslint-plugin-react';
@@ -13,7 +14,11 @@ export default [
       globals: globals.browser,
     },
   },
+  // NOTE: custom config starts
   {
+    languageOptions: {
+      parser: babelParser,
+    },
     settings: {
       'import/resolver': {
         node: {
@@ -29,5 +34,6 @@ export default [
 
   pluginReact.configs.flat.recommended,
 
+  // NOTE: extra plugins added
   importPlugin.flatConfigs.recommended,
 ];
