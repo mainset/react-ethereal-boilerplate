@@ -1,9 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 
-import createReduxStore from './redux-store';
+import createReduxStore from 'redux-store';
+
 import routes from './routes';
 
 const {
@@ -11,12 +12,14 @@ const {
   history: browserHistory,
 } = createReduxStore();
 
-const MAIN = (
+const BrowserReactApp = (
   <Provider store={browserStore}>
-    <ConnectedRouter history={browserHistory}>
-      {routes}
-    </ConnectedRouter>
+    <BrowserRouter>
+      <ConnectedRouter history={browserHistory}>
+        {routes}
+      </ConnectedRouter>
+    </BrowserRouter>
   </Provider>
 );
 
-ReactDOM.render(MAIN, document.getElementById('react-ethereal-boilerplate'));
+export default BrowserReactApp;

@@ -1,21 +1,21 @@
 /* eslint-disable */
 var merge = require('webpack-merge');
-var path = require('path');
 
-var common = require('./common.config.js');
+var csrWebappDevConfig = require('./csr-webapp.dev.config.js');
 
-var rootPath = path.join(__dirname, '..', '..');
 var proxyConfig = require('../proxy');
+
+var paths = require('./paths');
 /* eslint-enable */
 
-module.exports = merge(common, {
+module.exports = merge(csrWebappDevConfig, {
   output: {
     filename: 'dist/scripts.js',
   },
   devtool: 'inline-source-map',
   devServer: {
     port: process.env.PORT || 8080,
-    contentBase: rootPath,
+    contentBase: paths.src,
     historyApiFallback: true,
     proxy: proxyConfig,
   },
