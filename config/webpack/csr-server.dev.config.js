@@ -4,10 +4,10 @@ var { merge } = require('webpack-merge');
 var paths = require('../paths');
 var proxyConfig = require('../proxy');
 
-var common = require('./common.config.js');
+var csrWebappDevConfig = require('./csr-webapp.dev.config.js');
 /* eslint-enable */
 
-module.exports = merge(common, {
+module.exports = merge(csrWebappDevConfig, {
   output: {
     filename: 'dist/scripts.js',
   },

@@ -5,9 +5,9 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-var babelConfig = require('../../babel.config');
+var babelConfig = require('../../../babel.config.js');
 
-var paths = require('../paths');
+var paths = require('../../paths');
 /* eslint-enable */
 
 module.exports = {
@@ -40,16 +40,6 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-      },
-    }),
-    new HtmlWebpackPlugin({
-      template: path.join(paths.srcPath, 'index.template.html'),
-    }),
-  ],
   resolve: {
     modules: [paths.srcPath, 'node_modules'],
     extensions: [
