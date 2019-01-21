@@ -1,14 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
 import reduxStore from './redux-store';
 import routes from './routes';
 
-const MAIN = (
+const BrowserReactApp = (
   <Provider store={reduxStore}>
-    {routes}
+    <BrowserRouter>
+      {routes}
+    </BrowserRouter>
   </Provider>
 );
 
-ReactDOM.render(MAIN, document.getElementById('react-ethereal-boilerplate'));
+export default BrowserReactApp;
