@@ -2,8 +2,7 @@
 var webpack = require('webpack');
 var path = require('path');
 
-var rootPath = path.join(__dirname, '..', '..');
-var srcPath = path.join(rootPath, 'src');
+var rootPath = path.join(__dirname, '..', '..', '..');
 /* eslint-enable */
 
 module.exports = {

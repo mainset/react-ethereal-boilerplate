@@ -19,7 +19,7 @@ app.use(express.static('public'));
 
 // get all path wich is not starts from api
 app.get(/^\/+(?!api)/, (req, res) => {
-  fs.readFile(path.resolve('private', 'index.html'), 'utf8', (err, htmlData) => {
+  fs.readFile(path.resolve('public', 'server.html'), 'utf8', (err, htmlData) => {
     // https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/api/StaticRouter.md#context-object
     const context = {};
     if (err) { return res.status(404).end(); }

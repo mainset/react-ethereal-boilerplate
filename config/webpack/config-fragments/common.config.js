@@ -3,9 +3,9 @@ require('dotenv').config();
 /* eslint-disable */
 var path = require('path');
 
-var babelConfig = require('../../babel.config.js');
+var babelConfig = require('../../../babel.config.js');
 
-var rootPath = path.join(__dirname, '..', '..');
+var rootPath = path.join(__dirname, '..', '..', '..');
 var srcPath = path.join(rootPath, 'src');
 /* eslint-enable */
 
