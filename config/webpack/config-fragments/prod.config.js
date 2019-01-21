@@ -1,14 +1,11 @@
 /* eslint-disable */
-var merge = require('webpack-merge');
 var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 var path = require('path');
-
-var common = require('./common.config.js');
-
-var rootPath = path.join(__dirname, '..', '..');
+var paths = require('./paths');
 /* eslint-enable */
 
-module.exports = merge(common, {
+module.exports = {
   output: {
     filename: 'dist/scripts.[hash].js',
   },
@@ -21,4 +18,4 @@ module.exports = merge(common, {
       }),
     ],
   },
-});
+};

@@ -1,25 +1,15 @@
 require('dotenv').config();
 
 /* eslint-disable */
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 
-var babelConfig = require('../../babel.config');
+var babelConfig = require('../../../babel.config.js');
 
-var rootPath = path.join(__dirname, '..', '..');
-var srcPath = path.join(rootPath, 'src');
+var paths = require('./paths');
 /* eslint-enable */
 
 module.exports = {
   mode: JSON.stringify(process.env.NODE_ENV),
-  entry: [
-    '@babel/polyfill',
-    path.join(srcPath, 'main.js'),
-  ],
-  output: {
-    path: path.join(rootPath, 'public'),
-  },
   module: {
     rules: [
       {
@@ -52,15 +42,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-      },
-    }),
-    new HtmlWebpackPlugin({ template: path.join(srcPath, 'index.template.html') }),
-  ],
   resolve: {
-    modules: [srcPath, 'node_modules'],
+    modules: [paths.src, 'node_modules'],
   },
 };
