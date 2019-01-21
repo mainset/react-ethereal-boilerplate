@@ -8,9 +8,11 @@ import {
 const createReduxStore = extendScalableStoreCreator(
   {
     localExample: exampleReducer,
+    // TODO: add reducers
   },
   [
-    exampleSagas
+    exampleSagas,
+    // TODO: add sagas
   ],
 );
 
