@@ -1,9 +1,8 @@
 import React from 'react';
-import { createBrowserRouter } from 'react-router-dom';
 
 import { Example, Home } from 'pages';
 
-const routes = createBrowserRouter([
+const routes = [
   {
     path: '/',
     element: <Home />,
@@ -12,6 +11,6 @@ const routes = createBrowserRouter([
     path: '/example',
     element: <Example />,
   },
-]);
+];
 
 export default routes;

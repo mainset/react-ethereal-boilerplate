@@ -1,12 +1,8 @@
 import 'dotenv/config';
 
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import path from 'path';
-import webpack from 'webpack';
+import babelConfig from '../../../babel.config.js';
 
-import babelConfig from '../../babel.config.js';
-
-import paths from '../paths.mjs';
+import paths from '../../paths.mjs';
 
 const commonConfig = {
   mode: JSON.stringify(process.env.NODE_ENV),
@@ -38,21 +34,12 @@ const commonConfig = {
       },
     ],
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-      },
-    }),
-    new HtmlWebpackPlugin({
-      template: path.join(paths.srcPath, 'index.template.html'),
-    }),
-  ],
   resolve: {
     modules: [paths.srcPath, 'node_modules'],
     extensions: [
       // default for {extensions} key: https://webpack.js.org/configuration/resolve/#resolveloader
       '.js',
+      '.mjs',
       '.json',
       // extra / custom
       '.ts',

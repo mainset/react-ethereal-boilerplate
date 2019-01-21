@@ -22,7 +22,7 @@ export default [
     settings: {
       'import/resolver': {
         node: {
-          extensions: ['.js', '.ts', '.tsx'],
+          extensions: ['.js', '.mjs', '.ts', '.tsx'],
           paths: ['src'],
         },
       },

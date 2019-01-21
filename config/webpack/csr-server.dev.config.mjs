@@ -3,9 +3,9 @@ import { merge } from 'webpack-merge';
 import paths from '../paths.mjs';
 import proxyConfig from '../proxy.mjs';
 
-import common from './common.config.mjs';
+import csrWebappDevConfig from './csr-webapp.dev.config.mjs';
 
-const devConfig = merge(common, {
+const csrServerDevConfig = merge(csrWebappDevConfig, {
   output: {
     filename: 'dist/scripts.js',
   },
@@ -16,8 +16,8 @@ const devConfig = merge(common, {
       directory: paths.rootPath,
     },
     historyApiFallback: true,
-    proxy: proxyConfig,
+    proxy: Object.values(proxyConfig),
   },
 });
 
-export default devConfig;
+export default csrServerDevConfig;
