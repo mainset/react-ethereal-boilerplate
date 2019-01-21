@@ -1,7 +1,7 @@
 import 'dotenv/config';
 
 import express from 'express';
-import proxy from 'http-proxy-middleware';
+import { createProxyMiddleware } from 'http-proxy-middleware';
 import path from 'path';
 
 import paths from './paths.mjs';
@@ -17,7 +17,7 @@ app.get(/^\/+(?!api)/, (req, res) =>
   res.sendFile(path.resolve(paths.rootPath, 'public', 'index.html'))
 );
 
-app.use('/api', proxy(proxyConfig['/api/']));
-app.use('/api-local', proxy(proxyConfig['/api-local/']));
+app.use('/api', createProxyMiddleware(proxyConfig['/api/']));
+app.use('/api-local', createProxyMiddleware(proxyConfig['/api-local/']));
 
 app.listen(port, () => console.log(`App listening on port ${port}!`));
