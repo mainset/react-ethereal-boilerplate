@@ -7,14 +7,34 @@ var paths = require('../../paths');
 var commonConfig = require('./common.config.js');
 /* eslint-enable */
 
-module.exports = merge(commonConfig, {
-  entry: [
-    '@babel/polyfill',
-    path.join(paths.rootPath, 'config', 'server.tsx'),
-  ],
-  target: 'node',
-  output: {
-    path: path.join(paths.rootPath, 'private'),
-    filename: 'server.js',
+module.exports = merge(
+  commonConfig,
+  {
+    entry: [
+      '@babel/polyfill',
+      path.join(paths.root, 'config', 'server.tsx'),
+    ],
+    target: 'node',
+    output: {
+      path: path.join(paths.root, 'private'),
+      filename: 'server.js',
+    },
   },
-});
+  {
+    module: {
+      rules: [
+        {
+          test: /\.(svg|png)$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                emitFile: false,
+              },
+            },
+          ],
+        },
+      ],
+    },
+  },
+);
