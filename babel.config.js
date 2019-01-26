@@ -18,6 +18,7 @@ var babelConfig = {
   ],
   plugins: [
     '@babel/plugin-proposal-class-properties',
+    '@babel/plugin-syntax-dynamic-import',
   ],
 };
 
