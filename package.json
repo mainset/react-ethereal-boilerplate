@@ -1,6 +1,6 @@
 {
   "name": "react-ethereal-boilerplate",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "React + Redux + redux-saga lightweight starter kit",
   "scripts": {
     "start": "npm run watch:csr-server",
