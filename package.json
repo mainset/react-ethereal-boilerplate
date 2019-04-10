@@ -30,6 +30,8 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "connected-react-router": "^6.3.2",
+    "history": "^4.9.0",
     "immutable": "^4.0.0-rc.12",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
