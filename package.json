@@ -40,6 +40,7 @@
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
     "redux-saga": "^1.0.2",
+    "redux-shared-store": "mainset/redux-shared-store#master",
     "reselect": "^4.0.0"
   }
 }
