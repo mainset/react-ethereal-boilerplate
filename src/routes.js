@@ -1,15 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+import { ConnectedRouter } from 'connected-react-router';
+
+import { history } from 'redux-store';
 
 import { Example, Home } from 'pages';
 
 const routes = (
-  <Router>
+  <ConnectedRouter history={history}>
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/example" component={Example} />
     </Switch>
-  </Router>
+  </ConnectedRouter>
 );
 
 export default routes;
