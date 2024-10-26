@@ -4,7 +4,7 @@ require('./global').init();
 
 /* eslint-disable */
 var express = require('express');
-var proxy = require('http-proxy-middleware');
+var { createProxyMiddleware } = require('http-proxy-middleware');
 var path = require('path');
 var fs = require("fs");
 
@@ -35,7 +35,7 @@ app.get(/^\/+(?!api)/, (req, res) => {
   });
 });
 
-app.use('/api', proxy(proxyConfig['/api/']));
-app.use('/api-local', proxy(proxyConfig['/api-local/']));
+app.use('/api', createProxyMiddleware(proxyConfig['/api/']));
+app.use('/api-local', createProxyMiddleware(proxyConfig['/api-local/']));
 
 app.listen(port, () => console.log(`App listening on port ${port}!`));

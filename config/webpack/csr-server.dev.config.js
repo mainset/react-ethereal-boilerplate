@@ -18,6 +18,6 @@ module.exports = merge(csrWebappDevConfig, {
       directory: paths.rootPath,
     },
     historyApiFallback: true,
-    proxy: proxyConfig,
+    proxy: Object.values(proxyConfig),
   },
 });
