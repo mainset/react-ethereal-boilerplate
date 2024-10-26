@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { fetchWelcomeData, selectWelcomeData } from 'store';
 
 class Example extends Component {
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.props.actions.fetchWelcomeData();
   }
 
