@@ -15,6 +15,7 @@ var babelConfig = {
       },
     ],
     '@babel/preset-react',
+    '@babel/preset-typescript',
   ],
   plugins: [],
 };

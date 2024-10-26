@@ -1,28 +1,19 @@
 /* eslint-disable */
+var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var path = require('path');
 
 var babelConfig = require('../../babel.config');
 
-var rootPath = path.join(__dirname, '..', '..');
-var srcPath = path.join(rootPath, 'src');
+var paths = require('../paths');
 /* eslint-enable */
 
 module.exports = {
   mode: JSON.stringify(process.env.NODE_ENV),
-  entry: [
-    '@babel/polyfill',
-    path.join(srcPath, 'main.js'),
-  ],
-  output: {
-    path: path.join(rootPath, 'public'),
-    publicPath: '/',
-  },
   module: {
     rules: [
       {
-        test: /.js?$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -53,9 +44,11 @@ module.exports = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
-    new HtmlWebpackPlugin({ template: path.join(srcPath, 'index.template.html') }),
+    new HtmlWebpackPlugin({
+      template: path.join(paths.srcPath, 'index.template.html'),
+    }),
   ],
   resolve: {
-    modules: [srcPath, 'node_modules'],
+    modules: [paths.rootPath, 'node_modules'],
   },
 };
