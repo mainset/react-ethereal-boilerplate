@@ -1,10 +1,9 @@
 /* eslint-disable */
 var { merge } = require('webpack-merge');
-var path = require('path');
+
+var paths = require('../paths');
 
 var common = require('./common.config.js');
-
-var rootPath = path.join(__dirname, '..', '..');
 /* eslint-enable */
 
 module.exports = merge(common, {
@@ -15,7 +14,7 @@ module.exports = merge(common, {
   devServer: {
     port: 8080,
     static: {
-      directory: rootPath,
+      directory: paths.rootPath,
     },
     historyApiFallback: true,
   },
