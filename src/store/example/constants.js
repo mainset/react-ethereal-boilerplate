@@ -1,3 +1,0 @@
-export const FETCH_WELCOME_DATA = 'localExample/FETCH_WELCOME_DATA';
-export const FETCH_WELCOME_DATA_SUCCESS = 'localExample/FETCH_WELCOME_DATA_SUCCESS';
-export const FETCH_WELCOME_DATA_ERROR = 'localExample/FETCH_WELCOME_DATA_ERROR';
