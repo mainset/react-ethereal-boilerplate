@@ -1,16 +1,16 @@
-import { ConnectedRouter } from 'connected-react-router';
 import React from 'react';
 import ReactDOMClient from 'react-dom/client';
 import { Provider } from 'react-redux';
+import { RouterProvider } from 'react-router-dom';
+import { configureReduxStore } from 'redux-store';
 
-import createReduxStore from './redux-store';
 import routes from './routes';
 
-const { store: browserStore, history: browserHistory } = createReduxStore();
+const reduxStore = configureReduxStore();
 
 const MAIN = (
-  <Provider store={browserStore}>
-    <ConnectedRouter history={browserHistory}>{routes}</ConnectedRouter>
+  <Provider store={reduxStore}>
+    <RouterProvider router={routes} />
   </Provider>
 );
 
