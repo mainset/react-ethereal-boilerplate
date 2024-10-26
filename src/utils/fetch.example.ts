@@ -13,14 +13,12 @@ const defaultRequestOptions = {
   },
 };
 
-export function fetchRequest(path, customOptions) {
+export function fetchRequest(path: string, customOptions) {
   const options = Object.assign({}, defaultRequestOptions, customOptions);
   const request = new Request(`${API_HOST}${path}`, options);
 
   return fetch(request)
-    .then((response) => (
-      response.json().then((result) => ({ result }))
-    ))
+    .then((response) => response.json())
     .catch((error) => ({ error }));
 }
 
