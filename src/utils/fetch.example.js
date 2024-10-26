@@ -13,7 +13,6 @@ const defaultRequestOptions = {
   },
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export function fetchRequest(path, customOptions) {
   const options = Object.assign({}, defaultRequestOptions, customOptions);
   const request = new Request(`${API_HOST}${path}`, options);
