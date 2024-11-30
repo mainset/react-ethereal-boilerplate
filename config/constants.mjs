@@ -3,4 +3,4 @@ const ENVIRONMENT_BY_ID = {
   DEVELOPMENT: 'development',
 };
 
-module.exports = ENVIRONMENT_BY_ID;
+export default ENVIRONMENT_BY_ID;
