@@ -1,12 +1,10 @@
-/* eslint-disable */
-var { merge } = require('webpack-merge');
+import { merge } from 'webpack-merge';
 
-var paths = require('../paths');
+import paths from '../paths.mjs';
 
-var common = require('./common.config.js');
-/* eslint-enable */
+import common from './common.config.mjs';
 
-module.exports = merge(common, {
+const devConfig = merge(common, {
   output: {
     filename: 'dist/scripts.js',
   },
@@ -19,3 +17,5 @@ module.exports = merge(common, {
     historyApiFallback: true,
   },
 });
+
+export default devConfig;

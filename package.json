@@ -3,8 +3,8 @@
   "version": "0.0.3",
   "description": "React + Redux + redux-saga lightweight starter kit",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --config ./config/react-ethereal-boilerplate.config.js --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --mode production --config ./config/react-ethereal-boilerplate.config.js"
+    "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --config ./config/react-ethereal-boilerplate.config.mjs --open --hot",
+    "build": "cross-env NODE_ENV=production webpack --mode production --config ./config/react-ethereal-boilerplate.config.mjs"
   },
   "main": "index.js",
   "repository": "git@github.com:mainset/react-ethereal-boilerplate.git",
