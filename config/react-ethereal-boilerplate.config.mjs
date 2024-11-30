@@ -1,11 +1,11 @@
-var path = require('path');
-var { merge } = require('webpack-merge');
+import path from 'path';
+import { merge } from 'webpack-merge';
 
-var ENVIRONMENT_BY_ID = require('./constants');
-var paths = require('./paths');
+import ENVIRONMENT_BY_ID from './constants.mjs';
+import paths from './paths.mjs';
 
-var developmentBundlerConfig = require('./webpack/dev.config');
-var productionBundlerConfig = require('./webpack/prod.config');
+import developmentBundlerConfig from './webpack/dev.config.mjs';
+import productionBundlerConfig from './webpack/prod.config.mjs';
 
 const reactEtherealBoilerplateConfig = {
   entry: ['@babel/polyfill', path.join(paths.srcPath, 'main.tsx')],
@@ -29,4 +29,4 @@ const BUNDLER_CONFIG_BY_NODE_ENV = {
   [ENVIRONMENT_BY_ID.DEVELOPMENT]: developmentModeConfig,
 };
 
-module.exports = BUNDLER_CONFIG_BY_NODE_ENV[process.env.NODE_ENV];
+export default BUNDLER_CONFIG_BY_NODE_ENV[process.env.NODE_ENV];

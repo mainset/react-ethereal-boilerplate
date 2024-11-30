@@ -1,14 +1,12 @@
-/* eslint-disable */
-var path = require('path');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import path from 'path';
+import webpack from 'webpack';
 
-var babelConfig = require('../../babel.config');
+import babelConfig from '../../babel.config.js';
 
-var paths = require('../paths');
-/* eslint-enable */
+import paths from '../paths.mjs';
 
-module.exports = {
+const commonConfig = {
   mode: JSON.stringify(process.env.NODE_ENV),
   module: {
     rules: [
@@ -60,3 +58,5 @@ module.exports = {
     ],
   },
 };
+
+export default commonConfig;
