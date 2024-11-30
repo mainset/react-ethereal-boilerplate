@@ -1,9 +1,11 @@
 import { merge } from 'webpack-merge';
 
+// NOTE: {import 'dotenv/config';} should be imported as soon as possible
+// because of missing {process.env.API_REMOTE_URL} - proxy isn't set-up properly
+import csrWebappDevConfig from './csr-webapp.dev.config.mjs';
+
 import paths from '../paths.mjs';
 import proxyConfig from '../proxy.mjs';
-
-import csrWebappDevConfig from './csr-webapp.dev.config.mjs';
 
 const csrServerDevConfig = merge(csrWebappDevConfig, {
   output: {
