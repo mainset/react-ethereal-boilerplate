@@ -1,6 +1,7 @@
 .DS_Store
 
-/package-lock.json
+# NOTE: {-lock.json} file required for {npm ci} command which is executed by Docker
+# /package-lock.json
 /npm-debug.log
 /yarn-error.log
 /yarn.lock
