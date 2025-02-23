@@ -8,12 +8,12 @@ import paths from './paths.mjs';
 import proxyConfig from './proxy.mjs';
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 app.use(express.static('public'));
 
 // get all path wich is not starts from api
-app.get(/^\/+(?!api)/, (req, res) =>
+app.get(/^\/+(?!api)/, (_req, res) =>
   res.sendFile(path.resolve(paths.rootPath, 'public', 'index.html'))
 );
 

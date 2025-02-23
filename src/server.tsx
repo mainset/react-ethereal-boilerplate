@@ -4,7 +4,7 @@ import {
   createStaticHandler,
   createStaticRouter,
   StaticRouterProvider,
-} from 'react-router-dom';
+} from 'react-router';
 
 import { configureReduxStore } from './redux-store';
 import routes from './routes';
