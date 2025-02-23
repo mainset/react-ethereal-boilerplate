@@ -12,7 +12,7 @@ import fs from 'fs';
 import proxyConfig from './proxy.mjs';
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 import ReactDOMServer from 'react-dom/server';
 import ProvideServerReactApp from '../src/server.tsx';
