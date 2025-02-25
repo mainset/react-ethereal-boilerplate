@@ -1,3 +1,6 @@
-export { fetchWelcomeData } from './api';
+export { fetchInternalWelcomeData, fetchPublicWelcomeData } from './api';
 export { exampleReducer } from './reducer';
-export { welcomeDataSelector } from './selectors';
+export {
+  internalWelcomeDataSelector,
+  publicWelcomeDataSelector,
+} from './selectors';

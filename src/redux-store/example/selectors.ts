@@ -4,9 +4,16 @@ import { RootState } from '../redux-store';
 
 const exampleStoreSelector = (state: RootState) => state.example;
 
-const welcomeDataSelector = createSelector(
+// internal API
+const internalWelcomeDataSelector = createSelector(
   [exampleStoreSelector],
-  (exampleStore) => exampleStore.data
+  (exampleStore) => exampleStore.internalAPIData
 );
 
-export { welcomeDataSelector };
+// public API
+const publicWelcomeDataSelector = createSelector(
+  [exampleStoreSelector],
+  (exampleStore) => exampleStore.publicAPIData
+);
+
+export { internalWelcomeDataSelector, publicWelcomeDataSelector };

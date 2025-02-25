@@ -19,5 +19,6 @@ app.get(/^\/+(?!api)/, (_req, res) =>
 
 app.use('/api', createProxyMiddleware(proxyConfig['/api/']));
 app.use('/api-local', createProxyMiddleware(proxyConfig['/api-local/']));
+app.use('/api-boilerplate', createProxyMiddleware(proxyConfig['/api-boilerplate/']));
 
 app.listen(port, () => console.log(`App listening on port ${port}!`));
