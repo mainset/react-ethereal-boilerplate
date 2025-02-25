@@ -1,30 +1,55 @@
 import {
-  FETCH_WELCOME_DATA,
-  FETCH_WELCOME_DATA_ERROR,
-  FETCH_WELCOME_DATA_SUCCESS,
+  FETCH_INTERNAL_WELCOME_DATA,
+  FETCH_INTERNAL_WELCOME_DATA_ERROR,
+  FETCH_INTERNAL_WELCOME_DATA_SUCCESS,
+  FETCH_PUBLIC_WELCOME_DATA,
+  FETCH_PUBLIC_WELCOME_DATA_ERROR,
+  FETCH_PUBLIC_WELCOME_DATA_SUCCESS,
 } from './constants';
 
 const initialState = {
-  data: null,
+  internalAPIData: null,
+  publicAPIData: null,
+
   isLoading: false,
   error: null,
 };
 
 function exampleReducer(state = initialState, action) {
   switch (action.type) {
-    case FETCH_WELCOME_DATA:
+    // internal API
+    case FETCH_INTERNAL_WELCOME_DATA:
       return {
         ...state,
         isLoading: true,
       };
-    case FETCH_WELCOME_DATA_SUCCESS:
+    case FETCH_INTERNAL_WELCOME_DATA_SUCCESS:
       return {
         ...state,
         isLoading: false,
         error: null,
-        data: action.data,
+        internalAPIData: action.data,
       };
-    case FETCH_WELCOME_DATA_ERROR:
+    case FETCH_INTERNAL_WELCOME_DATA_ERROR:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.error,
+      };
+    // public API
+    case FETCH_PUBLIC_WELCOME_DATA:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case FETCH_PUBLIC_WELCOME_DATA_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        error: null,
+        publicAPIData: action.data,
+      };
+    case FETCH_PUBLIC_WELCOME_DATA_ERROR:
       return {
         ...state,
         isLoading: false,

@@ -1,21 +1,50 @@
 import {
-  FETCH_WELCOME_DATA,
-  FETCH_WELCOME_DATA_ERROR,
-  FETCH_WELCOME_DATA_SUCCESS,
+  FETCH_INTERNAL_WELCOME_DATA,
+  FETCH_INTERNAL_WELCOME_DATA_ERROR,
+  FETCH_INTERNAL_WELCOME_DATA_SUCCESS,
+  FETCH_PUBLIC_WELCOME_DATA,
+  FETCH_PUBLIC_WELCOME_DATA_ERROR,
+  FETCH_PUBLIC_WELCOME_DATA_SUCCESS,
 } from './constants';
 
-const fetchWelcomeData = () => ({
-  type: FETCH_WELCOME_DATA,
+// internal API
+const fetchInternalWelcomeData = () => ({
+  type: FETCH_INTERNAL_WELCOME_DATA,
 });
 
-const fetchWelcomeSuccess = (data) => ({
-  type: FETCH_WELCOME_DATA_SUCCESS,
+const fetchInternalWelcomeSuccess = (data) => ({
+  type: FETCH_INTERNAL_WELCOME_DATA_SUCCESS,
   data,
 });
 
-const fetchWelcomeError = (error) => ({
-  type: FETCH_WELCOME_DATA_ERROR,
+const fetchInternalWelcomeError = (error) => ({
+  type: FETCH_INTERNAL_WELCOME_DATA_ERROR,
   error,
 });
 
-export { fetchWelcomeData, fetchWelcomeError, fetchWelcomeSuccess };
+// public API
+const fetchPublicWelcomeData = () => ({
+  type: FETCH_PUBLIC_WELCOME_DATA,
+});
+
+const fetchPublicWelcomeSuccess = (data) => ({
+  type: FETCH_PUBLIC_WELCOME_DATA_SUCCESS,
+  data,
+});
+
+const fetchPublicWelcomeError = (error) => ({
+  type: FETCH_PUBLIC_WELCOME_DATA_ERROR,
+  error,
+});
+
+export {
+  // internal API
+  fetchInternalWelcomeData,
+  fetchInternalWelcomeError,
+  fetchInternalWelcomeSuccess,
+
+  // public API
+  fetchPublicWelcomeData,
+  fetchPublicWelcomeError,
+  fetchPublicWelcomeSuccess,
+};
