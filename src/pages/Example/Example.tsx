@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router';
 
 import {
-  fetchInternalWelcomeData,
-  fetchPublicWelcomeData,
-  internalWelcomeDataSelector,
-  publicWelcomeDataSelector,
+  externalPublicWelcomeDataSelector,
+  fetchExternalWelcomePublicData,
+  fetchInternalWelcomePublicData,
+  internalWelcomePublicDataSelector,
   useAppDispatch,
   useAppSelector,
 } from 'redux-store';
@@ -13,31 +13,37 @@ import {
 const Example = () => {
   const dispatch = useAppDispatch();
 
-  const { internalAPIData, publicAPIData } = useAppSelector((store) => ({
-    internalAPIData: internalWelcomeDataSelector(store),
-    publicAPIData: publicWelcomeDataSelector(store),
-  }));
+  const { internalWelcomePublicData, externalPublicWelcomeData } =
+    useAppSelector((store) => ({
+      internalWelcomePublicData: internalWelcomePublicDataSelector(store),
+      externalPublicWelcomeData: externalPublicWelcomeDataSelector(store),
+    }));
 
   React.useEffect(() => {
     // internal API
-    dispatch(fetchInternalWelcomeData());
-    // public API
-    dispatch(fetchPublicWelcomeData());
+    dispatch(fetchInternalWelcomePublicData());
+    // external API
+    dispatch(fetchExternalWelcomePublicData());
   }, []);
 
   return (
     <div className='example-container'>
       <div>
-        <p><strong>Internal API</strong></p>
+        <p>
+          <strong>Internal API</strong>
+        </p>
         Welcome message:
-        {internalAPIData?.welcomeMessage}
+        {internalWelcomePublicData?.welcomeMessage}
       </div>
 
       <div>
-        <p><strong>Public API</strong></p>
+        <p>
+          <strong>Public API</strong>
+        </p>
         Your IP is:
-        {publicAPIData?.origin}
+        {externalPublicWelcomeData?.origin}
       </div>
+
       <br />
       <Link to='/'>Back to home page</Link>
     </div>

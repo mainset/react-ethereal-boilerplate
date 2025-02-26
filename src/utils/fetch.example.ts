@@ -1,3 +1,5 @@
+import { FetchApiService } from './fetch-api.service';
+
 /*
   Data downloading using pure JS fetch
   @type: JS object
@@ -7,17 +9,22 @@
 // NOTE: add some default options like headers here
 const defaultRequestOptions = {
   headers: {
-    // 'Content-Type': 'application/json',
+    // TODO: do not pass {application/json}, parse JSON by default on Server Side
+    'Content-Type': 'application/json',
   },
 };
 
-export function fetchRequest(path: string, customOptions) {
+function fetchRequest(path: string, customOptions) {
   const options = Object.assign({}, defaultRequestOptions, customOptions);
-  const request = new Request(path, options);
+  // const request = new Request(path, options);
 
-  return fetch(request)
+  const apiService = FetchApiService.getInstance();
+
+  return apiService
+    .fetch(path, options)
     .then((response) => response.json())
-    .catch((error) => ({ error }));
+    // NOTE: rethrow error to catch it in the component
+    // .catch((error) => ({ error }));
 }
 
-export default fetchRequest;
+export { fetchRequest };
