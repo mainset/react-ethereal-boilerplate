@@ -1,7 +1,13 @@
-import { exampleReducer } from './example';
+import { currentSessionReducer } from './current-session';
+import { usersReducer } from './users';
+import { welcomeReducer } from './welcome';
 
 const rootReducer = {
-  example: exampleReducer,
+  currentSession: currentSessionReducer,
+  users: usersReducer,
+
+  // TODO: drop
+  welcome: welcomeReducer,
 };
 
 export { rootReducer };

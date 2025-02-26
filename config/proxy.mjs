@@ -10,6 +10,13 @@ const proxyConfig = {
     target: process.env.API_LOCAL_PATH,
     pathRewrite: { '^/api-local/': '/' },
   },
+  '/api-boilerplate/': {
+    context: ['/api-boilerplate/'],
+    target: process.env.API__EXPRESS_ETHEREAL_BOILERPLATE,
+    pathRewrite: { '^/api-boilerplate/': '/' },
+    changeOrigin: true,
+    secure: false,
+  },
 };
 
 export default proxyConfig;
