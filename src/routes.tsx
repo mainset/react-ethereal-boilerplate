@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Example, Home } from 'pages';
+import { ProtectedRoute } from 'containers';
+import { Example, Home, Login, Portal } from 'pages';
 
 const routes = [
   {
@@ -10,6 +11,19 @@ const routes = [
   {
     path: '/example',
     element: <Example />,
+  },
+  {
+    path: '/login',
+    element: <Login />,
+  },
+  {
+    element: <ProtectedRoute />,
+    children: [
+      {
+        path: '/portal',
+        element: <Portal />,
+      },
+    ],
   },
 ];
 
