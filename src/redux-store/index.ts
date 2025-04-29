@@ -1,4 +1,9 @@
-export { currentSessionUserIdSelector, postAuthLogin } from './current-session';
+export {
+  currentSessionUserIdSelector,
+  getAuthMe,
+  postAuthLogin,
+  postAuthLogout,
+} from './current-session';
 export { postUserRegister } from './users';
 export {
   externalPublicWelcomeDataSelector,

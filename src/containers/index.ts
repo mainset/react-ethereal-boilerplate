@@ -1,1 +1,3 @@
-export { ProtectedRoute } from './ProtectedRoute';
+export { SecureRoute } from './SecureRoute';
+export { SessionProvider } from './SessionProvider';
+

@@ -3,7 +3,7 @@ import { Navigate, Outlet } from 'react-router';
 
 import { currentSessionUserIdSelector, useAppSelector } from 'redux-store';
 
-const ProtectedRoute = () => {
+const Protected = () => {
   const currentSessionUserId = useAppSelector(currentSessionUserIdSelector);
   const isAuthenticated = Boolean(currentSessionUserId);
 
@@ -18,4 +18,24 @@ const ProtectedRoute = () => {
   );
 };
 
-export { ProtectedRoute };
+const Public = () => {
+  const currentSessionUserId = useAppSelector(currentSessionUserIdSelector);
+  const isAuthenticated = Boolean(currentSessionUserId);
+
+  return isAuthenticated ? (
+    <Navigate
+      to='/portal'
+      replace
+      // state={{ from: typeof window !== 'undefined' && window.location }}
+    />
+  ) : (
+    <Outlet />
+  );
+};
+
+const SecureRoute = {
+  Protected,
+  Public,
+}
+
+export { SecureRoute };
