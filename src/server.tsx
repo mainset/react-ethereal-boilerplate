@@ -6,6 +6,7 @@ import {
   StaticRouterProvider,
 } from 'react-router';
 
+import { SessionProvider } from './containers';
 import { configureReduxStore } from './redux-store';
 import routes from './routes';
 
@@ -32,7 +33,9 @@ const ProvideServerReactApp = async (requestUrl: string, fullUrl: string) => {
 
   return (
     <Provider store={reduxStore}>
-      <StaticRouterProvider router={staticRouter} context={routerContext} />
+      <SessionProvider>
+        <StaticRouterProvider router={staticRouter} context={routerContext} />
+      </SessionProvider>
     </Provider>
   );
 };
