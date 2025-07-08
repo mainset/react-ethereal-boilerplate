@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-
 import {
   externalPublicWelcomeDataSelector,
   fetchExternalWelcomePublicData,
@@ -27,7 +26,7 @@ const Example = () => {
   }, []);
 
   return (
-    <div className='example-container'>
+    <div className="example-container">
       <div>
         <p>
           <strong>Internal API</strong>
@@ -45,7 +44,7 @@ const Example = () => {
       </div>
 
       <br />
-      <Link to='/'>Back to home page</Link>
+      <Link to="/">Back to home page</Link>
     </div>
   );
 };

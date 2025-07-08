@@ -7,18 +7,18 @@ const welcomeStoreSelector = (state: RootState) => state.welcome;
 // internal API
 const internalWelcomePublicDataSelector = createSelector(
   [welcomeStoreSelector],
-  (welcomeStore) => welcomeStore.internalPublicAPIData
+  (welcomeStore) => welcomeStore.internalPublicAPIData,
 );
 
 const internalWelcomeProtectedDataSelector = createSelector(
   [welcomeStoreSelector],
-  (welcomeStore) => welcomeStore.internalProtectedAPIData
+  (welcomeStore) => welcomeStore.internalProtectedAPIData,
 );
 
 // external API
 const externalPublicWelcomeDataSelector = createSelector(
   [welcomeStoreSelector],
-  (welcomeStore) => welcomeStore.externalPublicAPIData
+  (welcomeStore) => welcomeStore.externalPublicAPIData,
 );
 
 export {

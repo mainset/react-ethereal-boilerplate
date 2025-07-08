@@ -1,3 +1,5 @@
 import { splitCode } from 'hocs';
 
-export default splitCode({ resolve: () => import(/* webpackChunkName: "Home" */'./Home') });
+export default splitCode({
+  resolve: () => import(/* webpackChunkName: "Home" */ './Home'),
+});

@@ -1,9 +1,7 @@
 import { fetchRequest } from 'utils';
 
-import { AppDispatch } from '../redux-store';
-
 import { setCurrentSessionUserId } from '../current-session/current-session.actions';
-
+import { AppDispatch } from '../redux-store';
 import { mergeInUser } from './users.actions';
 
 type PostUserRegisterParams = {

@@ -1,7 +1,6 @@
-import React from 'react';
-
 import { SecureRoute } from 'containers';
 import { Example, Home, Login, Portal } from 'pages';
+import React from 'react';
 
 const routes = [
   {

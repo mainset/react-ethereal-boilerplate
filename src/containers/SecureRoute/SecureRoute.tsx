@@ -1,6 +1,5 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router';
-
 import { currentSessionUserIdSelector, useAppSelector } from 'redux-store';
 
 const Protected = () => {
@@ -11,7 +10,7 @@ const Protected = () => {
     <Outlet />
   ) : (
     <Navigate
-      to='/login'
+      to="/login"
       replace
       // state={{ from: typeof window !== 'undefined' && window.location }}
     />
@@ -24,7 +23,7 @@ const Public = () => {
 
   return isAuthenticated ? (
     <Navigate
-      to='/portal'
+      to="/portal"
       replace
       // state={{ from: typeof window !== 'undefined' && window.location }}
     />
@@ -36,6 +35,6 @@ const Public = () => {
 const SecureRoute = {
   Protected,
   Public,
-}
+};
 
 export { SecureRoute };

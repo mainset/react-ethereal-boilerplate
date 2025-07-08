@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router';
-
 import { postAuthLogin, postUserRegister, useAppDispatch } from 'redux-store';
 
 const SUBMIT_EVENT_ID = {
@@ -41,39 +40,39 @@ const Login = () => {
         navigate('/portal');
       });
     },
-    []
+    [],
   );
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input type='email' name='email' placeholder='Email address' required />
+        <input type="email" name="email" placeholder="Email address" required />
         <br />
         <input
-          type='password'
-          name='password'
-          placeholder='Password'
+          type="password"
+          name="password"
+          placeholder="Password"
           required
         />
         <br />
-        <input type='checkbox' name='is_remember_me' id='isRememberMe' />{' '}
-        <label htmlFor='isRememberMe'>Keep me signed in</label>
+        <input type="checkbox" name="is_remember_me" id="isRememberMe" />{' '}
+        <label htmlFor="isRememberMe">Keep me signed in</label>
         <br />
         <button
-          type='submit'
+          type="submit"
           value={SUBMIT_EVENT_ID.LOGIN}
           disabled={isUnregistered}
         >
           Login
         </button>{' '}
-        <button type='submit' value={SUBMIT_EVENT_ID.REGISTER}>
+        <button type="submit" value={SUBMIT_EVENT_ID.REGISTER}>
           Register
         </button>
       </form>
 
       <br />
 
-      <Link to='/'>Back to home page</Link>
+      <Link to="/">Back to home page</Link>
     </div>
   );
 };

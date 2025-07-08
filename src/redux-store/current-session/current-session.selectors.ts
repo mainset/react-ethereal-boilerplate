@@ -6,7 +6,7 @@ const currentSessionStoreSelector = (state: RootState) => state.currentSession;
 
 const currentSessionUserIdSelector = createSelector(
   [currentSessionStoreSelector],
-  (currentSessionStore) => currentSessionStore.authenticatedUserId
+  (currentSessionStore) => currentSessionStore.authenticatedUserId,
 );
 
 export { currentSessionUserIdSelector };
