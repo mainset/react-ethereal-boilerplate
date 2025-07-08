@@ -1,6 +1,6 @@
 const getDocumentCookieValue = (cookieKeyName: string): string | undefined => {
   const match = (window.document.cookie || '').match(
-    new RegExp('(^|;\\s*)' + cookieKeyName + '=([^;]*)')
+    new RegExp('(^|;\\s*)' + cookieKeyName + '=([^;]*)'),
   );
 
   // NOTE: {match || []} used to return {undefined} instead of null

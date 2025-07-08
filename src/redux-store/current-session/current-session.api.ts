@@ -26,20 +26,20 @@ function getAuthMe() {
                   [user.id]: user,
                 },
                 userIds: [user.id],
-              })
+              }),
             );
 
             dispatch(
               setCurrentSessionUserId({
                 authenticatedUserId: user.id,
-              })
+              }),
             );
           })
           .catch(() => {
             dispatch(
               setCurrentSessionUserId({
                 authenticatedUserId: null,
-              })
+              }),
             );
           })
       : Promise.resolve();
@@ -67,13 +67,13 @@ function postAuthLogin({ data }: PostAuthLoginParams) {
             [user.id]: user,
           },
           userIds: [user.id],
-        })
+        }),
       );
 
       dispatch(
         setCurrentSessionUserId({
           authenticatedUserId: user.id,
-        })
+        }),
       );
     });
   };
@@ -87,7 +87,7 @@ function postAuthLogout() {
       dispatch(
         setCurrentSessionUserId({
           authenticatedUserId: null,
-        })
+        }),
       );
     });
   };

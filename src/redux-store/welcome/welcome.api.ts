@@ -1,7 +1,6 @@
 import { fetchRequest } from 'utils';
 
 import { AppDispatch } from '../redux-store';
-
 import {
   setExternalWelcomePublicData,
   setInternalWelcomeProtectedData,
@@ -35,7 +34,7 @@ function fetchExternalWelcomePublicData() {
     return fetchRequest('/api/get', { method: 'GET' }).then(
       (responseAsJson) => {
         dispatch(setExternalWelcomePublicData(responseAsJson));
-      }
+      },
     );
   };
 }

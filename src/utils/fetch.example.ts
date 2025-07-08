@@ -20,11 +20,9 @@ function fetchRequest(path: string, customOptions) {
 
   const apiService = FetchApiService.getInstance();
 
-  return apiService
-    .fetch(path, options)
-    .then((response) => response.json())
-    // NOTE: rethrow error to catch it in the component
-    // .catch((error) => ({ error }));
+  return apiService.fetch(path, options).then((response) => response.json());
+  // NOTE: rethrow error to catch it in the component
+  // .catch((error) => ({ error }));
 }
 
 export { fetchRequest };

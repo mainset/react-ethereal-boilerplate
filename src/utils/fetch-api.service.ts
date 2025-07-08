@@ -17,7 +17,7 @@ class FetchApiService {
     if (!FetchApiService.instance) {
       if (!config) {
         throw new Error(
-          'FetchApiService must be initialized with config first'
+          'FetchApiService must be initialized with config first',
         );
       }
       FetchApiService.instance = new FetchApiService(config);
