@@ -1,16 +1,21 @@
+import type { SSRConfigParams } from '@mainset/cli/ssr-server';
 import React from 'react';
 import { Provider } from 'react-redux';
 import {
+  StaticRouterProvider,
   createStaticHandler,
   createStaticRouter,
-  StaticRouterProvider,
 } from 'react-router';
 
 import { SessionProvider } from './containers';
 import { configureReduxStore } from './redux-store';
 import routes from './routes';
 
-const ProvideServerReactApp = async (requestUrl: string, fullUrl: string) => {
+type RenderSSRContentByPath = SSRConfigParams['renderSSRContentByPath'];
+type RenderSSRHandler = RenderSSRContentByPath[string];
+type RenderSSRHandlerParams = Parameters<RenderSSRHandler>[0];
+
+const ProvideServerReactApp = async ({ fullUrl }: RenderSSRHandlerParams) => {
   // Step 1: Create a static handler for the routes
   const { query, dataRoutes } = createStaticHandler(routes);
 

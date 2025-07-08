@@ -1,4 +1,4 @@
-const proxyConfig = {
+const proxyConfigByPath = {
   '/api/': {
     context: ['/api/'],
     target: process.env.API_REMOTE_URL,
@@ -19,4 +19,4 @@ const proxyConfig = {
   },
 };
 
-export default proxyConfig;
+export default proxyConfigByPath;
