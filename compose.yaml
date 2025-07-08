@@ -31,12 +31,12 @@ services:
     env_file:
       - ./.env.development
     volumes:
+      # Bind Mount code for Live Update
       - ./src:/usr/src/web-app--react/src
       # !IMPORTANT: ensure that the volume mounting does not overwrite any of the {node_modules} directory
       - /usr/src/web-app--react/node_modules
-      # !IMPORTANT: ensure that the volume mounting does not overwrite any of the {public|private} static directory
-      - /usr/src/web-app--react/public
-      - /usr/src/web-app--react/private
+      # !IMPORTANT: ensure that the volume mounting does not overwrite any of the {dist} static directory
+      - /usr/src/web-app--react/dist
     profiles: [dev]
 
   # development service

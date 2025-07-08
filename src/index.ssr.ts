@@ -1,6 +1,6 @@
 import ReactDOMClient from 'react-dom/client';
 
-import BrowserReactApp from './browser';
+import BrowserReactApp from './app.browser';
 
 const targetContainer = document.getElementById('react-ethereal-boilerplate');
 

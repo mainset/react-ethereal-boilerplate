@@ -25,20 +25,27 @@ FROM base AS install-dependencies
 # Leverage a cache mount to /root/.local/share/pnpm/store to speed up subsequent builds.
 # Leverage a bind mounts to package.json and pnpm-lock.yaml to avoid having to copy them into
 # into this layer.
-RUN --mount=type=bind,source=package.json,target=package.json \
+RUN \
+    # mount root files
+    --mount=type=bind,source=package.json,target=package.json \
     --mount=type=bind,source=pnpm-lock.yaml,target=pnpm-lock.yaml \
+    # mount cache and install dependencies
     --mount=type=cache,target=/root/.local/share/pnpm/store \
-    pnpm install --prod --frozen-lockfile
+    (\
+        # Install dependencies with pnpm
+        # pnpm install --prod --frozen-lockfile
+        pnpm install --frozen-lockfile \
+    )
 
 ################################################################################
-# Create a stage for building the packages source code for Client Side Rendering
-FROM install-dependencies as build-csr
+# Create a stage for building the packages source code for Server Side Rendering
+FROM install-dependencies as build-ssr
 
 # Copy the rest of the source files into the image.
 COPY . .
 
 # Run the build script.
-RUN pnpm run build:csr
+RUN pnpm run build
 
 ################################################################################
 # Create a new {production} stage that will be running the application
@@ -51,7 +58,7 @@ ENV NODE_ENV production
 USER node
 
 # Copy compiled {/dist} code from the {build} Docker stage into the image.
-COPY --chown=node:node --from=build-csr /usr/src/web-app--react/public ./public
+COPY --chown=node:node --from=build-ssr /usr/src/web-app--react/dist ./dist
 # Copy other required files and folders to launch the application
 COPY ./package.json ./
 COPY ./config ./config
@@ -60,20 +67,10 @@ COPY ./config ./config
 EXPOSE 8080
 
 # Run the application.
-CMD npm run start:serve-static
+CMD ["pnpm", "run", "serve"]
 
 ################################################################################
-# Create a stage for building the packages source code for Server Side Rendering
-FROM install-dependencies as build-ssr
-
-# Copy the rest of the source files into the image.
-COPY . .
-
-# Run the build script.
-RUN pnpm run build:ssr
-
-################################################################################
-# Create a new {production} stage that will be running the application
+# Create a new {development} stage that will be running the application
 FROM install-dependencies AS development
 
 # Use production node environment
@@ -83,8 +80,7 @@ ENV NODE_ENV development
 USER node
 
 # Copy compiled {/dist} code from the {build} Docker stage into the image.
-COPY --chown=node:node --from=build-ssr /usr/src/web-app--react/public ./public
-COPY --chown=node:node --from=build-ssr /usr/src/web-app--react/private ./private
+COPY --chown=node:node --from=build-ssr /usr/src/web-app--react/dist ./dist
 
 # Copy the rest of the source files into the image.
 # !IMPORTANT: the {--chown=node:node} required, server crashes on file change, files re-generated with root permissions
@@ -94,4 +90,4 @@ COPY --chown=node:node . .
 EXPOSE 8080
 
 # Run the application.
-CMD npm run start:server-ssr
+CMD ["pnpm", "run", "dev"]

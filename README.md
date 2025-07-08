@@ -2,10 +2,14 @@
 
 To start the project run:
 ```bash
-docker compose up
+# Start the API and FE in development mode
+docker compose --profile dev up
+
+# Start the API and FE in production mode
+docker compose --profile prod up
 ```
 
 If the build required - provide `--build` tag:
 ```bash
-docker compose up --build
+docker compose --profile dev up --build
 ```
