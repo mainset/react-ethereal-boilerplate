@@ -13,9 +13,18 @@ const proxyConfigByPath = {
   '/api-boilerplate/': {
     context: ['/api-boilerplate/'],
     target: process.env.API__EXPRESS_ETHEREAL_BOILERPLATE,
-    pathRewrite: { '^/api-boilerplate/': '/' },
+    pathRewrite: { '^/api-boilerplate/': '/api/v1' },
     changeOrigin: true,
     secure: false,
+  },
+  // Add WebSocket proxy
+  '/ws-connection': {
+    context: ['/ws-connection'],
+    target: process.env.API__EXPRESS_ETHEREAL_BOILERPLATE,
+    pathRewrite: { '^/ws-connection': '/ws' },
+    changeOrigin: true,
+    secure: false,
+    ws: true, // Enable WebSocket proxying
   },
 };
 

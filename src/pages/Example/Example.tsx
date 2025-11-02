@@ -25,6 +25,17 @@ const Example = () => {
     dispatch(fetchExternalWelcomePublicData());
   }, []);
 
+  React.useEffect(() => {
+    const ws = new WebSocket('/ws-connection');
+
+    ws.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      console.log(data);
+    };
+
+    // ws.send(JSON.stringify({ type: 'ping' }));
+  }, []);
+
   return (
     <div className="example-container">
       <div>
