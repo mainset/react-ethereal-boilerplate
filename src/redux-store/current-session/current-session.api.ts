@@ -1,7 +1,7 @@
 import { fetchRequest } from 'utils';
 
 import { getDocumentCookieValue } from '../../utils';
-import { AppDispatch } from '../redux-store';
+import type { AppDispatch } from '../redux-store';
 import { mergeInUser } from '../users/users.actions';
 import { setCurrentSessionUserId } from './current-session.actions';
 

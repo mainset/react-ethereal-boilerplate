@@ -1,6 +1,6 @@
 import { fetchRequest } from 'utils';
 
-import { AppDispatch } from '../redux-store';
+import type { AppDispatch } from '../redux-store';
 import {
   setExternalWelcomePublicData,
   setInternalWelcomeProtectedData,
