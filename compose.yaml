@@ -33,6 +33,7 @@ services:
     volumes:
       # Bind Mount code for Live Update
       - ./src:/usr/src/web-app--react/src
+      - ./config:/usr/src/web-app--react/config
       # !IMPORTANT: ensure that the volume mounting does not overwrite any of the {node_modules} directory
       - /usr/src/web-app--react/node_modules
       # !IMPORTANT: ensure that the volume mounting does not overwrite any of the {dist} static directory
